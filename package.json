@@ -1,13 +1,13 @@
 {
 	"name": "@aytacmalkoc/jsondb",
-	"version": "0.0.1",
+	"version": "1.0.0",
 	"description": "A simple JSON database",
 	"repository": "aytacmalkoc/jsondb",
 	"license": "MIT",
 	"main": "src/index.js",
 	"types": "src/index.d.ts",
 	"scripts": {
-		"publish": "npm run prettier-format && npm run build && npm publish --access public",
+		"publish": "npm run prettier-format && npm publish --access public",
 		"lint": "eslint . --ext .ts",
 		"prettier-format": "prettier --config .prettierrc src/**/*.ts --write",
 		"prettier-watch": "onchange 'src/**/*.ts' -- prettier --write {{changed}}"
