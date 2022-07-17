@@ -1,0 +1,34 @@
+{
+	"name": "@aytacmalkoc/jsondb",
+	"version": "0.0.1",
+	"description": "A simple JSON database",
+	"repository": "aytacmalkoc/jsondb",
+	"license": "MIT",
+	"main": "src/index.js",
+	"types": "src/index.d.ts",
+	"scripts": {
+		"publish": "npm run prettier-format && npm run build && npm publish --access public",
+		"lint": "eslint . --ext .ts",
+		"prettier-format": "prettier --config .prettierrc src/**/*.ts --write",
+		"prettier-watch": "onchange 'src/**/*.ts' -- prettier --write {{changed}}"
+	},
+	"keywords": [
+		"javascript",
+		"json db",
+		"json"
+	],
+	"author": {
+		"name": "Aytac Malkoc",
+		"email": "aytacmalkoc@protonmail.com",
+		"url": "https://www.aytacmalkoc.com.tr"
+	},
+	"devDependencies": {
+		"eslint-config-prettier": "^8.5.0",
+		"eslint-plugin-prettier": "^4.2.1",
+		"onchange": "^7.1.0",
+		"prettier": "^2.7.1"
+	},
+	"dependencies": {
+		"uuid": "^8.3.2"
+	}
+}
