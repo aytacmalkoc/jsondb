@@ -28,6 +28,8 @@ Database.prototype.add = function (modelName, value) {
     model.push(json);
 
     this.save();
+
+    return json
 }
 
 Database.prototype.findById = function (modelName, id) {
@@ -74,18 +76,24 @@ Database.prototype.delete = function (modelName, id) {
     this.db.data[modelName] = model;
 
     this.save();
+
+    return true;
 }
 
 Database.prototype.deleteAll = function (modelName) {
     this.db.data[modelName] = [];
 
     this.save();
+
+    return true;
 }
 
 Database.prototype.clear = function () {
     this.db.data = {};
 
     this.save();
+
+    return true;
 }
 
 Database.prototype.createModel = function (modelName, initialValue = []) {
