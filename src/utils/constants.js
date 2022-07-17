@@ -2,9 +2,7 @@ const DEFAULT_OPTIONS = {
     uuid: true,
     primaryKey: 'id',
     minify: false,
-    timestamp: true,
-    stringify: JSON.stringify,
-    parse: JSON.parse,
+    timestamp: true
 }
 
 const DEFAULT_CONTENT = {
