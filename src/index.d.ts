@@ -6,8 +6,6 @@ declare class JsonDB<T = any> {
       primaryKey?: string;
       minify?: boolean;
       timestamp?: boolean;
-      stringify?: (o: T) => string;
-      parse?: (s: string) => T | undefined;
     }
   );
 
