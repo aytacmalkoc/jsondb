@@ -8,7 +8,7 @@ function JsonDB(path, options) {
 }
 
 JsonDB.prototype.add = function (key, value) {
-    this.db.add(key, value);
+    return this.db.add(key, value);
 }
 
 JsonDB.prototype.findById = function (key, id) {
@@ -24,15 +24,15 @@ JsonDB.prototype.update = function (key, id, value) {
 }
 
 JsonDB.prototype.delete = function (key, id) {
-    this.db.delete(key, id);
+    return this.db.delete(key, id);
 }
 
 JsonDB.prototype.deleteAll = function (key) {
-    this.db.deleteAll(key);
+    return this.db.deleteAll(key);
 }
 
 JsonDB.prototype.clear = function () {
-    this.db.clear();
+    return this.db.clear();
 }
 
 module.exports = JsonDB;
