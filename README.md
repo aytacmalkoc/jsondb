@@ -13,9 +13,9 @@ Easy, fast local database system with JSON.
   - [🙇‍♂️ Motivation](#-motivation)
   - [🔗 Installation](#-installation)
   - [👉 Usage](#-usage)
-  - [⚙️ Methods](#methods)
-  - [🔗 Examples](#examples)
-  - [✏️ Formatting](#formatting)
+  - [⚙️ Methods](#-methods)
+  - [🔗 Examples](#-examples)
+  - [✏️ Formatting](#-formatting)
   - [🚀 Publish](#-publish)
   - [💁 License](#-license)
 
