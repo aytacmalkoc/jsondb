@@ -5,6 +5,8 @@ Easy, fast local database system with JSON.
 [![npm downloads](https://img.shields.io/npm/dt/@aytacmalkoc/jsondb)](https://www.npmjs.com/package/@aytacmalkoc/jsondb)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/aytacmalkoc/jsondb/blob/main/LICENSE)
 
+[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/aytacmalkoc)
+
 # 🧧 Table of contents
 
 - [📖 jsondb](#-jsondb)
@@ -12,6 +14,7 @@ Easy, fast local database system with JSON.
   - [🔗 Installation](#-installation)
   - [👉 Usage](#-usage)
   - [⚙️ Methods](#methods)
+  - [🔗 Examples](#examples)
   - [✏️ Formatting](#formatting)
   - [🚀 Publish](#-publish)
   - [💁 License](#-license)
@@ -112,6 +115,14 @@ const clear = db.clear();
 | delete    | key, id        |
 | deleteAll | key            |
 | clear     | -              |
+
+## 🔗 Examples
+You can check the [postman workspace collections](https://www.postman.com/aytacmalkoc/workspace/aytacmalkoc-jsondb) for detailed examples.
+
+- [ ] NodeJS
+- [x] Express
+- [ ] React
+- [ ] Vue
 
 ## ✏️ Formatting
 
