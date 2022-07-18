@@ -3,6 +3,7 @@
 Easy, fast local database system with JSON.
 
 [![npm downloads](https://img.shields.io/npm/dt/@aytacmalkoc/jsondb)](https://www.npmjs.com/package/@aytacmalkoc/jsondb)
+[![npm version](https://badge.fury.io/js/@aytacmalkoc%2Fjsondb.svg)](https://badge.fury.io/js/@aytacmalkoc%2Fjsondb)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/aytacmalkoc/jsondb/blob/main/LICENSE)
 
 [!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/aytacmalkoc)
