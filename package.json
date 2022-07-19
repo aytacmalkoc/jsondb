@@ -8,9 +8,9 @@
 	"types": "src/index.d.ts",
 	"scripts": {
 		"publish": "npm run prettier-format && npm publish --access public",
-		"lint": "eslint . --ext .ts",
-		"prettier-format": "prettier --config .prettierrc src/**/*.ts --write",
-		"prettier-watch": "onchange 'src/**/*.ts' -- prettier --write {{changed}}"
+		"lint": "eslint . --ext .js",
+		"prettier-format": "prettier --config .prettierrc src/**/*.js --write",
+		"prettier-watch": "onchange 'src/**/*.js' -- prettier --write {{changed}}"
 	},
 	"keywords": [
 		"javascript",
