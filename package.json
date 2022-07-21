@@ -1,6 +1,6 @@
 {
 	"name": "@aytacmalkoc/jsondb",
-	"version": "1.0.3",
+	"version": "1.0.4",
 	"description": "A simple JSON database",
 	"repository": "aytacmalkoc/jsondb",
 	"license": "MIT",
