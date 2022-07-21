@@ -92,7 +92,7 @@ const users = db.findAll('users');
 
 ### delete
 ```js
-const delete = db.delete('users', 1);
+const deleteUser = db.delete('users', 1);
 ```
 
 ### deleteAll
@@ -103,6 +103,15 @@ const deleteAll = db.deleteAll('users');
 ### clear
 ```js
 const clear = db.clear();
+```
+
+### timeAgo
+The timeAgo method can be used to convert the timestamp values of the data into readable format.
+```js
+const user = db.findById('users', 1);
+const ago = db.timeAgo(user.created_at);
+
+console.log(ago); // 30 minutes ago
 ```
 
 ### ⚙️ Method Parameters
@@ -116,6 +125,7 @@ const clear = db.clear();
 | delete    | key, id        |
 | deleteAll | key            |
 | clear     | -              |
+| timeAgo   | date           |
 
 ## 🔗 Examples
 You can check the [postman workspace collections](https://www.postman.com/aytacmalkoc/workspace/aytacmalkoc-jsondb) for detailed examples.
