@@ -16,8 +16,6 @@ function Database(path, options) {
     this.path = path;
     this.options = options;
     this.db = getDB(path);
-    this.createdAt = this.db.created_at;
-    this.updatedAt = this.db.updated_at;
 }
 
 /**
