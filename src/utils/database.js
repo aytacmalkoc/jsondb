@@ -2,6 +2,15 @@ const { createDatabase, updateDatabase } = require("./file");
 const { getDB, currentDate } = require("./helpers");
 const { v4: uuidv4 } = require('uuid');
 
+/**
+ * @param {string} path
+ * @param {Object} [options]
+ * @param {boolean} options.uuid
+ * @param {string} options.primaryKey
+ * @param {boolean} options.minify
+ * @param {boolean} options.timestamp
+ * @constructor
+ */
 function Database(path, options) {
     createDatabase(path);
     this.path = path;
@@ -9,10 +18,18 @@ function Database(path, options) {
     this.db = getDB(path);
 }
 
+/**
+ * @returns {Object}
+ */
 Database.prototype.read = function () {
     return this.db;
 }
 
+/**
+ * @param {string} modelName
+ * @param {Object} value
+ * @returns {Object}
+ */
 Database.prototype.add = function (modelName, value) {
     let model = this.createModel(modelName);
     const json = {
@@ -32,6 +49,11 @@ Database.prototype.add = function (modelName, value) {
     return json
 }
 
+/**
+ * @param {stringg} modelName
+ * @param {number|string} id
+ * @returns {null|Object}
+ */
 Database.prototype.findById = function (modelName, id) {
     let model = this.db.data[modelName];
 
@@ -40,10 +62,20 @@ Database.prototype.findById = function (modelName, id) {
     return model.find(item => item[this.options.primaryKey] === id);
 }
 
+/**
+ * @param {string} modelName
+ * @returns {Array}
+ */
 Database.prototype.findAll = function (modelName) {
     return this.db.data[modelName];
 }
 
+/**
+ * @param {string} modelName
+ * @param {number|string} id
+ * @param {Object} value
+ * @returns {null|Object}
+ */
 Database.prototype.update = function (modelName, id, value) {
     let model = this.db.data[modelName];
 
@@ -66,6 +98,11 @@ Database.prototype.update = function (modelName, id, value) {
     return model[index];
 }
 
+/**
+ * @param {string} modelName
+ * @param {number|string} id
+ * @returns {null|boolean}
+ */
 Database.prototype.delete = function (modelName, id) {
     let model = this.db.data[modelName];
 
@@ -80,6 +117,10 @@ Database.prototype.delete = function (modelName, id) {
     return true;
 }
 
+/**
+ * @param {string} modelName
+ * @returns {boolean}
+ */
 Database.prototype.deleteAll = function (modelName) {
     this.db.data[modelName] = [];
 
@@ -88,6 +129,9 @@ Database.prototype.deleteAll = function (modelName) {
     return true;
 }
 
+/**
+ * @returns {boolean}
+ */
 Database.prototype.clear = function () {
     this.db.data = {};
 
@@ -96,6 +140,11 @@ Database.prototype.clear = function () {
     return true;
 }
 
+/**
+ * @param {string} modelName
+ * @param {Object|Array} initialValue
+ * @returns {Object|Array}
+ */
 Database.prototype.createModel = function (modelName, initialValue = []) {
 
     if (!this.db.data[modelName]) {

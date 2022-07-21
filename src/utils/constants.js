@@ -1,3 +1,6 @@
+/**
+ * @type {{minify: boolean, uuid: boolean, primaryKey: string, timestamp: boolean}}
+ */
 const DEFAULT_OPTIONS = {
     uuid: true,
     primaryKey: 'id',
@@ -5,6 +8,9 @@ const DEFAULT_OPTIONS = {
     timestamp: true
 }
 
+/**
+ * @type {{updated_at: string, data: {}, created_at: string, version: number}}
+ */
 const DEFAULT_CONTENT = {
     version: 1,
     created_at: new Date().toISOString(),

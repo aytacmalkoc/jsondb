@@ -2,7 +2,9 @@ const fs = require('fs');
 const fsPath = require('path');
 const { DEFAULT_CONTENT } = require('./constants');
 
-// create file if not exists using arrow function
+/**
+ * @param {string} path
+ */
 const createDatabase = (path) => {
     if (!fs.existsSync(path)) {
         ensureDirectoryExistence(path);
@@ -10,6 +12,10 @@ const createDatabase = (path) => {
     }
 }
 
+/**
+ * @param {string} path
+ * @returns {boolean}
+ */
 const ensureDirectoryExistence = (path) => {
     const dirname = fsPath.dirname(path);
     if (fs.existsSync(dirname)) {
@@ -19,6 +25,10 @@ const ensureDirectoryExistence = (path) => {
     fs.mkdirSync(dirname);
 }
 
+/**
+ * @param {string} path
+ * @param {Object} data
+ */
 const updateDatabase = (path, data) => {
     data.updated_at = new Date().toISOString();
     fs.writeFileSync(path, JSON.stringify(data, null, 2));
