@@ -1,5 +1,5 @@
 const Database = require('./utils/database');
-const { setDefaultOptions, createPath } = require('./utils/helpers');
+const { setDefaultOptions, createPath, timeSince } = require('./utils/helpers');
 
 /**
  * @param {string} path
@@ -14,6 +14,16 @@ function JsonDB(path, options) {
     this.path = createPath(path);
     this.options = setDefaultOptions(options);
     this.db = new Database(this.path, this.options);
+    this.createdAt = this.db.createdAt;
+    this.updatedAt = this.db.updatedAt;
+}
+
+/**
+ * @param {string} date
+ * @returns {string}
+ */
+JsonDB.prototype.readable = function (date) {
+    return timeSince(new Date(date));
 }
 
 /**
