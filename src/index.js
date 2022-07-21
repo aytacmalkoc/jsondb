@@ -14,15 +14,13 @@ function JsonDB(path, options) {
     this.path = createPath(path);
     this.options = setDefaultOptions(options);
     this.db = new Database(this.path, this.options);
-    this.createdAt = this.db.createdAt;
-    this.updatedAt = this.db.updatedAt;
 }
 
 /**
  * @param {string} date
  * @returns {string}
  */
-JsonDB.prototype.readable = function (date) {
+JsonDB.prototype.timeAgo = function (date) {
     return timeSince(new Date(date));
 }
 
