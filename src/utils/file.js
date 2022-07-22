@@ -4,11 +4,13 @@ const { DEFAULT_CONTENT } = require('./constants');
 
 /**
  * @param {string} path
+ * @param {boolean} minify
  */
-const createDatabase = (path) => {
+const createDatabase = (path, minify) => {
   if (!fs.existsSync(path)) {
     ensureDirectoryExistence(path);
-    fs.writeFileSync(path, JSON.stringify(DEFAULT_CONTENT, null, 2));
+    const data = minify ? JSON.stringify(DEFAULT_CONTENT) : JSON.stringify(DEFAULT_CONTENT, null, 2);
+    fs.writeFileSync(path, data);
   }
 };
 
@@ -28,10 +30,13 @@ const ensureDirectoryExistence = (path) => {
 /**
  * @param {string} path
  * @param {Object} data
+ * @param {boolean} minify
  */
-const updateDatabase = (path, data) => {
+const updateDatabase = (path, data, minify) => {
   data.updated_at = new Date().toISOString();
-  fs.writeFileSync(path, JSON.stringify(data, null, 2));
+  const json = minify ? JSON.stringify(data) : JSON.stringify(data, null, 2);
+
+  fs.writeFileSync(path, json);
 };
 
 module.exports = {
