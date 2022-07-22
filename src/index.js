@@ -1,5 +1,5 @@
 const Database = require('./utils/database');
-const { setDefaultOptions, createPath, timeSince } = require('./utils/helpers');
+const { setDefaultOptions, createPath, timeSince, getFileSize } = require('./utils/helpers');
 
 /**
  * @param {string} path
@@ -94,5 +94,13 @@ JsonDB.prototype.deleteAll = function (key) {
 JsonDB.prototype.clear = function () {
   return this.db.clear();
 };
+
+/**
+ * @param {number} toFixed
+ * @returns {{mb: number, byte: number, kb: number, gb: number}}
+ */
+JsonDB.prototype.getDatabaseSize = function (toFixed = 2) {
+  return getFileSize(this.path, toFixed);
+}
 
 module.exports = JsonDB;

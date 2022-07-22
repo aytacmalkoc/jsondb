@@ -133,19 +133,28 @@ const ago = db.timeAgo(user.created_at);
 console.log(ago); // 30 minutes ago
 ```
 
+### getDatabaseSize
+The getDatabaseSize method returns an object containing the values of bytes, kilobytes, megabytes, and gigabytes.
+```js
+const size = db.getDatabaseSize(); // return size object
+
+console.log(`${size.kb} KB`); // 1.5 KB
+```
+
 ### ⚙️ Method Parameters
 
-| Method    | Parameters                      |
-|-----------|---------------------------------|
-| add       | key, value                      |
-| where     | modelName, key, operator, value |
-| findById  | key, id                         |
-| findAll   | key                             |
-| update    | key, id, value                  |
-| delete    | key, id                         |
-| deleteAll | key                             |
-| clear     | -                               |
-| timeAgo   | date                            |
+| Method          | Parameters                      |
+|-----------------|---------------------------------|
+| add             | key, value                      |
+| where           | modelName, key, operator, value |
+| findById        | key, id                         |
+| findAll         | key                             |
+| update          | key, id, value                  |
+| delete          | key, id                         |
+| deleteAll       | key                             |
+| clear           | -                               |
+| timeAgo         | date                            |
+| getDatabaseSize | toFixed (default: 2)            |
 
 ## 🔗 Examples
 You can check the [postman workspace collections](https://www.postman.com/aytacmalkoc/workspace/aytacmalkoc-jsondb) for detailed examples.
