@@ -75,6 +75,26 @@ const timeSince = (date) => {
   return moment(from).fromNow();
 };
 
+/**
+ * @param {string} path
+ * @param {number} toFixed
+ * @returns {{mb: number, byte: number, kb: number, gb: number}}
+ */
+const getFileSize = (path, toFixed) => {
+    const stats = fs.statSync(path);
+    const fileSizeInBytes = stats.size;
+    const fileSizeInKb = fileSizeInBytes / 1024;
+    const fileSizeInMb = fileSizeInKb / 1024;
+    const fileSizeInGb = fileSizeInMb / 1024;
+
+    return {
+      byte: `${fileSizeInBytes}`,
+      kb: `${fileSizeInKb.toFixed(toFixed)}`,
+      mb: `${fileSizeInMb.toFixed(toFixed)}`,
+      gb: `${fileSizeInGb.toFixed(toFixed)}`
+    };
+}
+
 module.exports = {
   validateJSON,
   validatePath,
@@ -82,5 +102,6 @@ module.exports = {
   createPath,
   getDB,
   currentDate,
-  timeSince
+  timeSince,
+  getFileSize
 };
