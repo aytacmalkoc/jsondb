@@ -12,7 +12,7 @@ const { v4: uuidv4 } = require('uuid');
  * @constructor
  */
 function Database(path, options) {
-  createDatabase(path);
+  createDatabase(path, options.minify);
   this.path = path;
   this.options = options;
   this.db = getDB(path);
@@ -203,7 +203,7 @@ Database.prototype.createModel = function (modelName, initialValue = []) {
 };
 
 Database.prototype.save = function () {
-  updateDatabase(this.path, this.db);
+  updateDatabase(this.path, this.db, this.options.minify);
 };
 
 module.exports = Database;
