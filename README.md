@@ -35,7 +35,7 @@ npm install @aytacmalkoc/jsondb
 ```
 
 ## 👉 Usage
-Please refer to the [table](#method-parameters) below for the parameters of the methods.
+Please refer to the [table](#-method-parameters) below for the parameters of the methods.
     
 ```js
 const JsonDB = require('@aytacmalkoc/jsondb');
@@ -78,6 +78,25 @@ const user = db.update('users', 1, {
     age: 23,
 });
 ```
+### where
+The where method finds items based on their key-value using comparison operators.
+```js
+const users = db.where('users', 'age', '>', 18); // return array of users with age greater than 18
+```
+
+#### Operators
+| **Operator** | **Description**                | **Accepted types**      |
+|--------------|--------------------------------|-------------------------|
+| =            | Equal                          | string, number, boolean |
+| !=           | Not equal                      | string, number, boolean |
+| >            | Greater than                   | string, number, boolean |
+| <            | Less than                      | string, number, boolean |
+| >=           | Greater than or equal          | string, number, boolean |
+| <=           | Less than or equal             | string, number, boolean |
+| like         | Like                           | string, number, boolean |
+| not like     | Not like                       | string, number, boolean |
+| between      | Between **(only numbers)**     | number[]                |
+| not between  | Not between **(only numbers)** | number[]                |
 
 ### findById
     
