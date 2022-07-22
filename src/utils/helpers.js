@@ -1,5 +1,6 @@
 const fs = require('fs');
 const fsPath = require('path');
+const moment = require('moment');
 const { DEFAULT_OPTIONS } = require('./constants');
 
 /**
@@ -7,96 +8,79 @@ const { DEFAULT_OPTIONS } = require('./constants');
  * @returns {boolean}
  */
 const validateJSON = (json) => {
-    try {
-        JSON.parse(json);
-        return true;
-    } catch (e) {
-        throw new Error(e);
-    }
-}
+  try {
+    JSON.parse(json);
+    return true;
+  } catch (e) {
+    throw new Error(e);
+  }
+};
 
 /**
  * @param {string} path
  * @returns {string}
  */
 const validatePath = (path) => {
-    if (!path || !path.length) {
-        throw new Error('Path is required');
-    } else {
-        return path;
-    }
-}
+  if (!path || !path.length) {
+    throw new Error('Path is required');
+  } else {
+    return path;
+  }
+};
 
 /**
  * @param {string} path
  * @returns {string}
  */
-const createPath = (path) => fsPath.join(process.cwd(), validatePath(path))
+const createPath = (path) => fsPath.join(process.cwd(), validatePath(path));
 
 /**
  * @param {string} path
  * @returns {JSON}
  */
 const getDB = (path) => {
-    let db = {};
-    let stats = fs.statSync(path);
-    if (stats.size > 0) {
-        let json;
-        try {
-            json = fs.readFileSync(path, 'utf8')
-        } catch (e) {
-            throw e;
-        }
-        if (validateJSON(json)) db = JSON.parse(json);
+  let db = {};
+  let stats = fs.statSync(path);
+  if (stats.size > 0) {
+    let json;
+    try {
+      json = fs.readFileSync(path, 'utf8');
+    } catch (e) {
+      throw e;
     }
-    return db;
-}
+    if (validateJSON(json)) db = JSON.parse(json);
+  }
+  return db;
+};
 
 /**
  * @param {Object} options
  * @returns {any}
  */
-const setDefaultOptions = (options) => Object.assign({}, DEFAULT_OPTIONS, options);
+const setDefaultOptions = (options) =>
+  Object.assign({}, DEFAULT_OPTIONS, options);
 
 /**
  * @returns {string}
  */
 const currentDate = () => new Date().toISOString();
 
+/**
+ * @param {string} date
+ * @returns {string}
+ */
 const timeSince = (date) => {
+  const from = new Date(date);
 
-    const seconds = Math.floor((new Date() - date) / 1000);
-
-    let interval = seconds / 31536000;
-
-    if (interval > 1) {
-        return Math.floor(interval) + " years ago";
-    }
-    interval = seconds / 2592000;
-    if (interval > 1) {
-        return Math.floor(interval) + " months ago";
-    }
-    interval = seconds / 86400;
-    if (interval > 1) {
-        return Math.floor(interval) + " days ago";
-    }
-    interval = seconds / 3600;
-    if (interval > 1) {
-        return Math.floor(interval) + " hours ago";
-    }
-    interval = seconds / 60;
-    if (interval > 1) {
-        return Math.floor(interval) + " minutes ago";
-    }
-    return Math.floor(seconds) + " seconds ago";
-}
+  return moment(from).fromNow();
+};
 
 module.exports = {
-    validateJSON,
-    validatePath,
-    setDefaultOptions,
-    createPath,
-    getDB,
-    currentDate,
-    timeSince
-}
+  validateJSON,
+  validatePath,
+  setDefaultOptions,
+  createPath,
+  getDB,
+  currentDate,
+  timeSince
+};
