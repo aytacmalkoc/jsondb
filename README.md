@@ -135,16 +135,17 @@ console.log(ago); // 30 minutes ago
 
 ### ⚙️ Method Parameters
 
-| Method    | Parameters     |
-|-----------|----------------|
-| add       | key, value     |
-| findById  | key, id        |
-| findAll   | key            |
-| update    | key, id, value |
-| delete    | key, id        |
-| deleteAll | key            |
-| clear     | -              |
-| timeAgo   | date           |
+| Method    | Parameters                      |
+|-----------|---------------------------------|
+| add       | key, value                      |
+| where     | modelName, key, operator, value |
+| findById  | key, id                         |
+| findAll   | key                             |
+| update    | key, id, value                  |
+| delete    | key, id                         |
+| deleteAll | key                             |
+| clear     | -                               |
+| timeAgo   | date                            |
 
 ## 🔗 Examples
 You can check the [postman workspace collections](https://www.postman.com/aytacmalkoc/workspace/aytacmalkoc-jsondb) for detailed examples.
