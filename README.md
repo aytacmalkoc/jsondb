@@ -36,15 +36,17 @@ npm install @aytacmalkoc/jsondb
 
 ## 👉 Usage
 Please refer to the [table](#-method-parameters) below for the parameters of the methods.
+
+JsonDB uses root directory as default database path.
     
 ```js
 const JsonDB = require('@aytacmalkoc/jsondb');
-const db = new JsonDB('./database/db.json');
+const db = new JsonDB('database/db.json');
 ```
 
 ### ➡️ Using with options
 ```js
-const db = new JsonDB('./database/db.json', {
+const db = new JsonDB('database/db.json', {
     uuid: true,
     primaryKey: 'id',
     timestamp: true,
@@ -55,24 +57,27 @@ const db = new JsonDB('./database/db.json', {
 |------------|----------|-------------|------------------------------------------|
 | uuid       | boolean  | true        | Generate unique id for each record.      |
 | primaryKey | string   | 'id'        | Define identity key                      |
-| timestamp  | boolean  | true        | Create created_at and updated_at fields. |
+| timestamp  | boolean  | true        | Add created_at and updated_at fields. |
 
 ## Methods
 Methods return different values depending on usage. The add and update, findById, findAll methods return the object or array it affects.
 The delete, deleteAll, and clear methods return true or false.
 
 ### add
-    
+The add method adds the objects given as parameters.
 ```js
 const user = db.add('users', {
     name: 'Aytac',
     surname: 'Malkoc',
     age: 22,
     email: 'aytacmalkoc@protonmail.com'
-}); // return user object
+});
+
+console.log(user); // Prints the user object
 ```
 
 ### update
+The update method is used to update data by id. Only given keys are updated. For example, we can only update the age of the user created in the add method.
 ```js
 const user = db.update('users', 1, {
     age: 23,
@@ -120,6 +125,7 @@ const deleteAll = db.deleteAll('users');
 ```
 
 ### clear
+Changes the database file to its default.
 ```js
 const clear = db.clear();
 ```
