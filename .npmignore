@@ -1,6 +1,7 @@
 # Folders
 node_modules
 examples
+.idea
 
 # Output of 'npm pack'
 *.tgz
